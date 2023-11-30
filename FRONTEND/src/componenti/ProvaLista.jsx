@@ -14,11 +14,11 @@ const ProvaLista = () => {
 
     //chiamata get al backend
     useEffect(() => {
-    axios.get('http://127.0.0.1:8000/carte/')
+    async axios.get('http://127.0.0.1:8000/carte/')
         .then(response => {
             const nomi = response.data.map(item => item.nome);
             setImageName(nomi);
-            console.log(nomi)
+            console.log(nomi);
         })
         .catch(error => {
             console.error('Errore nella chiamata al backend', error);
@@ -52,7 +52,7 @@ const ProvaLista = () => {
 
     return (
         <div className='wrapper'>
-          <FormControl fullWidth>
+          <FormControl id="seleziona" fullWidth>
             <InputLabel id="scegli_deck_label">Deck predefiniti</InputLabel>
             <Select
               labelId="scegli_deck_label"
@@ -71,8 +71,9 @@ const ProvaLista = () => {
         <div className="cornice">
           <ImageList sx={{ width: 700, height: 450 }} cols={4} rowHeight={164}>
             {deckCorrente.map((item) => {
-              const immagine = React.lazy(() => import(`./immagini/${item}.jpeg`).then((module) => ({ default: module })));
-              console.log(immagine) 
+              
+               const immagine = import(`./immagini/${item}.jpeg`);
+               console.log(immagine) 
               return(
               <ImageListItem key={item}>
                 <Suspense fallback={<div>Loading...</div>}>

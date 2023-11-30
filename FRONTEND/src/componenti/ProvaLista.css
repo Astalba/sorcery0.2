@@ -4,11 +4,17 @@
     background-color: blueviolet;
     opacity: 20%;
     margin: 5px;
+    
 }
 
 .lista{
     width: 100%;
     display: flex;
+   
+}
+#scegli_deck{
+    background-color: beige;
+    
 }
 
 .cornice {
@@ -16,7 +22,24 @@
     background-color: rgb(43, 42, 42);
     width: 100vh;
     height: 70vh;
+    justify-content: center;
+    align-items: center;
 
     display: flex;
   }
  
+  .wrapper {
+        
+    background-image: url(./immagini/sabbia.jpeg);
+    height:100vh;
+    background-color: black;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:cover;
+    justify-content: center;
+    align-items: center;
+
+    display: grid;
+   
+
+}

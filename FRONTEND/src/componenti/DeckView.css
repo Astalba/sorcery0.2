@@ -1,0 +1,10 @@
+.deckView {
+        
+        background-image: url(./immagini/sabbia.jpeg);
+        height:100vh;
+        background-color: black;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size:cover;
+    
+}

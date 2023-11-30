@@ -1,0 +1,46 @@
+
+.plancia {
+    background-image: url("./immagini/playmatSorcery.jpeg");
+    position: relative;
+    background-repeat: no-repeat;
+    height: 388px;
+    max-width: 599px;
+    background-size: cover;
+    background-position: center;
+    justify-content: center;
+    display: flex;
+    margin: 5vh;
+    margin-top: 2.5vh;
+}
+
+.stileMain {
+    position: 'absolute';
+    margin-top: 3%;
+    left: 0;
+    width: 74%;
+    height: 82%;
+    object-fit: cover;
+}
+
+.Home{
+    height:100vh;
+    background-color: black;
+    background-image: url(./immagini/battlefield.jpeg);
+    background-repeat: no-repeat;
+    background-position: center;
+
+    
+    }
+    
+    .Image{
+        display:inline;
+        margin-left: auto;
+        margin-right: auto;
+        width:70%;
+        
+    }
+    .button{
+        background-color: lightgrey;
+    }
+
+    
