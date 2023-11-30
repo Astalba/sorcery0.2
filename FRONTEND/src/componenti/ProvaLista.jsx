@@ -5,16 +5,18 @@ import { ImageList, ImageListItem, FormControl, InputLabel, Select, MenuItem, Bu
 import arrayFireDeck from './deckPredefiniti/fireDeck'
 import arrayEarthDeck from './deckPredefiniti/earthDeck'
 import './ProvaLista.css'
+import { lazy } from 'react';
 
 const ProvaLista = () => {
 
     const [deckPredefinito, setDeckPredefinito] = useState([])
     const [imageName, setImageName] = useState([])
+    const [immagine, setImmagine] = useState("")
     const deckCorrente = []
 
     //chiamata get al backend
     useEffect(() => {
-    async axios.get('http://127.0.0.1:8000/carte/')
+    axios.get('http://127.0.0.1:8000/carte/')
         .then(response => {
             const nomi = response.data.map(item => item.nome);
             setImageName(nomi);
@@ -71,9 +73,19 @@ const ProvaLista = () => {
         <div className="cornice">
           <ImageList sx={{ width: 700, height: 450 }} cols={4} rowHeight={164}>
             {deckCorrente.map((item) => {
-              
-               const immagine = import(`./immagini/${item}.jpeg`);
-               console.log(immagine) 
+              try {
+                import(`./immagini/${item}.jpeg`)
+                  .then(({default: module}) => {
+                    console.log(immagine);
+                    setImmagine(module);
+                    console.log(module);
+                  }
+                  );
+              } catch (error) {
+                console.log("error");
+                setImmagine("");
+              }
+                
               return(
               <ImageListItem key={item}>
                 <Suspense fallback={<div>Loading...</div>}>

@@ -19,7 +19,7 @@
 
 .cornice {
     overflow: hidden; /* Per gestire il float dei figli */
-    background-color: rgb(43, 42, 42);
+    background-color: beige;
     width: 100vh;
     height: 70vh;
     justify-content: center;
