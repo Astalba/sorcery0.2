@@ -1,0 +1,22 @@
+.carte{
+    height: 150px;
+    width: 100px;
+    background-color: blueviolet;
+    opacity: 20%;
+    margin: 5px;
+}
+
+.lista{
+    width: 100%;
+    display: flex;
+}
+
+.cornice {
+    overflow: hidden; /* Per gestire il float dei figli */
+    background-color: rgb(43, 42, 42);
+    width: 100vh;
+    height: 70vh;
+
+    display: flex;
+  }
+ 

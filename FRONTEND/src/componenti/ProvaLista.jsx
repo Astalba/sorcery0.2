@@ -4,7 +4,7 @@ import axios from 'axios';
 import { ImageList, ImageListItem, FormControl, InputLabel, Select, MenuItem, Button  } from '@mui/material';
 import arrayFireDeck from './deckPredefiniti/fireDeck'
 import arrayEarthDeck from './deckPredefiniti/earthDeck'
-//per il select
+import './ProvaLista.css'
 
 const ProvaLista = () => {
 
@@ -33,7 +33,7 @@ const ProvaLista = () => {
         elemento => imageName.nome === elemento.nome        //elemento è la singola carta nell'array, imageName i vari dati del backend
       );
 
-      // Fai qualcosa con gli elementi corrispondenti
+      // Lavora con gli elementi corrispondenti
       if (elementiCorrispondenti.length > 0) {
         console.log(`Elemento ${elemento.nome} trovato nel backend`);
         deckCorrente.push(elemento.nome)
@@ -51,7 +51,7 @@ const ProvaLista = () => {
    
 
     return (
-        <div>
+        <div className='wrapper'>
           <FormControl fullWidth>
             <InputLabel id="scegli_deck_label">Deck predefiniti</InputLabel>
             <Select
@@ -65,20 +65,25 @@ const ProvaLista = () => {
               <MenuItem value={arrayEarthDeck}>Earth</MenuItem>
             </Select>
           </FormControl>
+
         
+
+        <div className="cornice">
           <ImageList sx={{ width: 700, height: 450 }} cols={4} rowHeight={164}>
             {deckCorrente.map((item) => {
-              const immagine = React.lazy(() => import(`./immagini/${item}.jpeg`)); 
+              const immagine = React.lazy(() => import(`./immagini/${item}.jpeg`).then((module) => ({ default: module })));
               console.log(immagine) 
               return(
               <ImageListItem key={item}>
                 <Suspense fallback={<div>Loading...</div>}>
                   <img src={immagine} alt = {item}/>
                 </Suspense>
-                <p> {item} </p> 
               </ImageListItem>
             )})}
           </ImageList>
+        </div>
+
+          
 
         </div>
       );
@@ -87,8 +92,11 @@ const ProvaLista = () => {
 export default ProvaLista
 
           //LISTA
-          /*<ul>
-          {deckCorrente.map( item => (
-            <li key={item.nome}> {item} </li>
-          ))}
-        </ul>*/
+        
+        /*
+          <ul className='lista'>
+            {deckCorrente.map( item => (
+              <div className='carte'> carta: {item} </div> 
+            ))}
+          </ul>
+          */

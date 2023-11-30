@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 
 
-const ListaDecks = () => {
+const ListaCarte = () => {
   const [dati, setDati] = useState([])
   
   useEffect(() => {
@@ -26,7 +26,7 @@ const ListaDecks = () => {
       <div className="contenitoreLista">
         <ul>
           {dati.map( item => (
-            <li key={item.id}> {item.nome} {item.tipo} </li>
+            <li key={item.id}> NOME: {item.nome} -- TIPOLOGIA: {item.tipo} </li>
           ))}
         </ul>
       </div>
@@ -36,4 +36,4 @@ const ListaDecks = () => {
   )
 }
 
-export default ListaDecks
+export default ListaCarte
