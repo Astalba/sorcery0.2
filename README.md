@@ -26,3 +26,5 @@ Comandi per startare l'app, partendo dalla directory 'sorcery0.2':
     >>cd BACKEND
     >>venv/scripts/activate
     >>python manage.py runserver 
+
+    Un progetto di Alessandro Bartoletti e Francesco Bagnoli
