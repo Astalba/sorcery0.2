@@ -35,10 +35,12 @@ const leftbar = () => {
 
 }
 
-const App = () => (
+const DeckView = () => (
     <div className='deckView'>
         {leftbar}
     </div>
+    
+    
 );
 
-export default App;
+export default DeckView;

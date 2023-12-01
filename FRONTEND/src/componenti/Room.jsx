@@ -126,7 +126,7 @@ const BattleGrid = () => {
     );
 }
 
-function App() {
+function Room() {
   return (
     <div className='Room'>
       <PlayingField/>  
@@ -134,5 +134,5 @@ function App() {
   );
 }
   
-  export default App;
+  export default Room;
   

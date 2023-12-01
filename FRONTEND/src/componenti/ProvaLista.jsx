@@ -5,7 +5,6 @@ import { ImageList, ImageListItem, FormControl, InputLabel, Select, MenuItem, Bu
 import arrayFireDeck from './deckPredefiniti/fireDeck'
 import arrayEarthDeck from './deckPredefiniti/earthDeck'
 import './ProvaLista.css'
-import { lazy } from 'react';
 
 let i=0;
 const ProvaLista = () => {
