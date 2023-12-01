@@ -7,11 +7,13 @@ import arrayEarthDeck from './deckPredefiniti/earthDeck'
 import './ProvaLista.css'
 import { lazy } from 'react';
 
+let i=0;
 const ProvaLista = () => {
 
     const [deckPredefinito, setDeckPredefinito] = useState([])
     const [imageName, setImageName] = useState([])
-    const [immagine, setImmagine] = useState("")
+    const [immagine, setImmagine] = useState([])
+    
     const deckCorrente = []
 
     //chiamata get al backend
@@ -50,7 +52,7 @@ const ProvaLista = () => {
     }
 
 
-   
+   console.log(i++);
 
     return (
         <div className='wrapper'>
@@ -73,26 +75,18 @@ const ProvaLista = () => {
         <div className="cornice">
           <ImageList sx={{ width: 700, height: 450 }} cols={4} rowHeight={164}>
             {deckCorrente.map((item) => {
-              try {
-                import(`./immagini/${item}.jpeg`)
-                  .then(({default: module}) => {
-                    console.log(immagine);
+                import(`./immagini/${item}.jpeg`).then(({default: module}) => {
                     setImmagine(module);
-                    console.log(module);
-                  }
-                  );
-              } catch (error) {
-                console.log("error");
-                setImmagine("");
-              }
-                
+                    console.log(immagine);
+                  });
               return(
               <ImageListItem key={item}>
                 <Suspense fallback={<div>Loading...</div>}>
                   <img src={immagine} alt = {item}/>
                 </Suspense>
               </ImageListItem>
-            )})}
+            );
+            })}
           </ImageList>
         </div>
 
