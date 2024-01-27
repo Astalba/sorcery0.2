@@ -8,3 +8,13 @@
         background-size:cover;
     
 }
+
+.urlBox{
+        size: 60%;
+        color: rgb(50,50,50,0.5);
+
+}
+
+.deckForm{
+        justify-content: center;
+}
