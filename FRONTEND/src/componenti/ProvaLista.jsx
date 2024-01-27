@@ -72,7 +72,7 @@ const ProvaLista = () => {
         
 
         <div className="cornice">
-          <ImageList sx={{ width: 700, height: 450 }} cols={4} rowHeight={164}>
+          <ImageList sx={{ width: 800, height: 500 }} cols={5} rowHeight={164}>
             {deckCorrente.map((item) => {
                 import(`./immagini/${item}.jpeg`).then(({default: module}) => {
                     setImmagine(module);
@@ -89,8 +89,6 @@ const ProvaLista = () => {
           </ImageList>
         </div>
 
-          
-
         </div>
       );
 }
@@ -99,10 +97,6 @@ export default ProvaLista
 
           //LISTA
         
-        /*
-          <ul className='lista'>
-            {deckCorrente.map( item => (
-              <div className='carte'> carta: {item} </div> 
-            ))}
-          </ul>
-          */
+        
+          
+          

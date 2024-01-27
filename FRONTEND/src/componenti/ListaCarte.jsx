@@ -19,16 +19,18 @@ const ListaCarte = () => {
       })
     }, []);
 
+
   return (
     <div className='wrapper'>
 
       <h1>DECK BUILDER</h1>
       <div className="contenitoreLista">
-        <ul>
           {dati.map( item => (
-            <li key={item.id}> NOME: {item.nome} -- TIPOLOGIA: {item.tipo} </li>
+            <>
+            <div key={item.id}> NOME: {item.nome} -- TIPOLOGIA: {item.tipo} </div>
+            
+            </> 
           ))}
-        </ul>
       </div>
     
 

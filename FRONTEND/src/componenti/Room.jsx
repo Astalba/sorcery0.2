@@ -25,8 +25,8 @@ function renderHand(hand) {
     var output = [];
     var md = 12 / hand.length
     for (let element of hand) {
-        console.log("./immagini/"+element+".jpeg");
-        const immaginecarta = import("./immagini/"+element+".jpeg");
+        console.log(`./immagini/${element}.jpeg`);
+        const immaginecarta = import(`./immagini/${element}.jpeg`);
         console.log({immaginecarta})
         output.push(<Grid onMouseOver={details(this)} item justify="space-between" md={md} style={{ height: "inherit", width:"inherit" }}><img src={immaginecarta} className="card" style={{ width: "inherit", height: "inherit" }} ></img></Grid>);
     }

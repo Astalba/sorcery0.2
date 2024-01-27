@@ -1,10 +1,13 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from rest_framework import viewsets, permissions, status
+from rest_framework import viewsets, permissions, status, generics
 from .models import *
 from .serializers import *
 from rest_framework.response import Response
-
+from rest_framework.views import APIView
+from django.contrib.auth.models import User
+from rest_framework.exceptions import ValidationError
+from django.contrib.auth import authenticate, logout
 
 
 # Create your views here.
@@ -23,39 +26,34 @@ class CartaViewset(viewsets.ViewSet):
         serializer = self.serializzatore_classe(queryset, many=True)
         return Response(serializer.data)
 
-    """def create(self, request):
-        serializer = self.serializzatore_classe(data=request.data)
-        if serializer.is_valid():
+class UserRegistrazioneView(generics.CreateAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+    
+    def create(self, request):
+        serializer = self.get_serializer(data = request.data)
+        try:
+            serializer.is_valid(raise_exception=True)
             serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-"""
-"""    def retrieve(self, request, pk=None):
-        try:
-            carta = self.queryset.get(pk=pk)
-        except Carta.DoesNotExist:
-            return Response(status=status.HTTP_404_NOT_FOUND)
-
-        serializer = self.serializzatore_classe(carta)
-        return Response(serializer.data)
-
-    def update(self, request, pk=None):
-        try:
-            carta = self.queryset.get(pk=pk)
-        except Carta.DoesNotExist:
-            return Response(status=status.HTTP_404_NOT_FOUND)
-
-        serializer = self.serializzatore_classe(carta, data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-    def destroy(self, request, pk=None):
-        try:
-            carta = self.queryset.get(pk=pk)
-        except Carta.DoesNotExist:
-            return Response(status=status.HTTP_404_NOT_FOUND)
-
-        carta.delete()
-        return Response(status=status.HTTP_204_NO_CONTENT)"""
+            return Response(status=status.HTTP_200_OK)
+        except ValidationError as e:
+            return Response({"error": str(e)}, status=status.HTTP_400_BAD_REQUEST)
+    
+class loginView(APIView):
+    def post(self, request):
+        username = request.data.get("username")
+        password = request.data.get("password")
+        
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            return Response(
+                status= status.HTTP_200_OK
+            )
+        else: return Response(
+            status = status.HTTP_400_BAD_REQUEST
+        )
+        
+class logoutview(APIView):
+    def post(self,request):
+        logout(request)
+        return Response(status=status.HTTP_205_REST_CONTENT)

@@ -2,11 +2,12 @@
 import { Routes, Route } from 'react-router-dom';
 import './App.css'
 import Home from './componenti/Home';
-import ProvaLista from './componenti/provaLista';
+import ProvaLista from './componenti/ProvaLista';
 import ListaCarte from './componenti/ListaCarte';
 import TableSelect from './componenti/TableSelect';
 import Room from './componenti/Room';
 import Deckview from './componenti/DeckView';
+
 function App() {
 
   return (

@@ -20,6 +20,11 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    "daphne",
+    'rest_framework',
+    'api',
+    "corsheaders",
+    'channels',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -27,9 +32,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'rest_framework',
-    'api',
-    "corsheaders",
+    
 ]
 
 MIDDLEWARE = [
@@ -69,7 +72,12 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'sorcBackend.wsgi.application'
-
+ASGI_APPLICATION = "sorcBackend.asgi.application"
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels.layers.InMemoryChannelLayer"
+    }
+}
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
