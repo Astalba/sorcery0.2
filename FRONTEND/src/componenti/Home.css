@@ -7,10 +7,15 @@
     max-width: 599px;
     background-size: cover;
     background-position: center;
+    background-color: black;
     justify-content: center;
     display: flex;
-    margin: 5vh;
-    margin-top: 2.5vh;
+    margin: 0vh;
+    margin-top: 0vh;
+}
+
+html{
+    background-color: black;
 }
 
 .stileMain {
@@ -37,11 +42,38 @@
         display:inline;
         margin-left: auto;
         margin-right: auto;
-        width:70%;
+        width:40%;
         
     }
     .button{
         background-color: lightgrey;
+    }
+    .logo{
+        width: 70%;
+
+    }
+    .row{
+        width: 33.33%;
+        float: left;
+    }
+
+    #rightRow{
+        border: 5px solid rgba(255, 255, 255, 0.5);
+        width: 30%;
+        height:100%;
+        float: right;
+    }
+    #centerRow{
+        width: 38.3%;
+        float:right;
+        height:100%;
+    }
+    #leftRow{
+        border: 5px solid rgba(255, 255, 255, 0.5);
+        width: 30%;
+        height:100%;
+        float: left;
+        
     }
 
     
