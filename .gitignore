@@ -4,11 +4,11 @@ __pycache__
 *.pyo
 *.pyd
 
-# Ignore the virtual environment
-venv/
+# # Ignore the virtual environment
+# venv/
 
-# Ignore local development settings
-*venv
+# # Ignore local development settings
+# *venv
 
 # Ignore the database
 db.sqlite3
